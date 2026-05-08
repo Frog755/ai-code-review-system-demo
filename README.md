@@ -2,6 +2,8 @@
 
 一个基于多Agent协作和长链推理的智能代码审查系统，能够自动分析代码质量、评估架构设计、生成测试用例，并提供综合改进建议。
 
+> 🌟 **快速开始**: [在线演示](https://frog755.github.io/ai-code-review-system-demo/) | [GitHub仓库](https://github.com/Frog755/ai-code-review-system-demo/) | [使用文档](https://github.com/Frog755/ai-code-review-system-demo/blob/main/USAGE.md)
+
 ## 核心功能
 
 - **多Agent协作架构**：代码分析Agent、架构评估Agent、测试生成Agent协同工作
