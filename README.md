@@ -127,3 +127,9 @@ ai-code-review-system/
 ## 许可证
 
 MIT License
+
+---
+
+**构建者**: Claude Code Assistant
+**创建日期**: 2025年5月
+**创建方式**: 本项目完全由 Claude Code 自主完成开发和部署，包含需求分析、代码实现、构建测试等全过程。
