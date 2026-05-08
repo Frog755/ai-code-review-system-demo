@@ -13,7 +13,7 @@ const architectureAgent = new ArchitectureEvaluationAgent();
 const testAgent = new TestGenerationAgent();
 const reasoningEngine = new LongChainReasoningEngine();
 
-app.post('/analyze', async (req, res) => {
+app.post('/analyze', async (req: express.Request, res: express.Response) => {
   try {
     const { code, language } = req.body;
 
@@ -47,11 +47,11 @@ app.post('/analyze', async (req, res) => {
     });
 
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error: (error as Error).message });
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
   console.log(`AI代码审查系统运行在端口 ${PORT}`);
 });

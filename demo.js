@@ -7,7 +7,7 @@ async function runDemo() {
     const code = fs.readFileSync('./src/example.ts', 'utf8');
 
     // 发送分析请求
-    const response = await axios.post('http://localhost:3000/analyze', {
+    const response = await axios.post('http://localhost:3001/analyze', {
       code: code,
       language: 'ts'
     });

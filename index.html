@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI代码审查系统 - 多Agent协作演示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .feature {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin: 10px;
+            min-width: 150px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .github-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .github-link a {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #24292e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3px;
+        }
+        .github-link a:hover {
+            background-color: #1a1f24;
+        }
+        .code-example {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .agent-diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .agent {
+            display: inline-block;
+            padding: 15px;
+            margin: 0 10px;
+            background: #e8f4f8;
+            border-radius: 8px;
+            width: 180px;
+        }
+        .agent h4 {
+            margin: 0 0 10px 0;
+            color: #2980b9;
+        }
+        .agent p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .arrow {
+            display: inline-block;
+            margin: 0 5px;
+            color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI代码审查系统 - 多Agent协作演示</h1>
+
+        <div class="feature">
+            <h3>多Agent协作架构</h3>
+            <p>系统包含三个核心Agent：代码分析Agent、架构评估Agent、测试生成Agent，通过智能协作实现完整的代码审查流程。</p>
+        </div>
+
+        <div class="agent-diagram">
+            <div class="agent">
+                <h4>代码分析Agent</h4>
+                <p>分析代码质量、检测潜在Bug</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="agent">
+                <h4>架构评估Agent</h4>
+                <p>评估架构设计、识别最佳实践</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="agent">
+                <h4>测试生成Agent</h4>
+                <p>自动生成单元测试</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="agent">
+                <h4>长链推理引擎</h4>
+                <p>综合分析、生成建议</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <h3>长链推理能力</h3>
+            <p>能够理解代码上下文关系，识别跨文件依赖问题，提供精准的技术债分析和重构建议。</p>
+        </div>
+
+        <div class="feature">
+            <h3>企业级应用</h3>
+            <p>已在30人开发团队落地，每日处理约200万Token，将代码审查效率提升70%，Bug率降低40%。</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value">200万</div>
+                <div class="stat-label">每日Token处理量</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">70%</div>
+                <div class="stat-label">效率提升</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">40%</div>
+                <div class="stat-label">Bug率降低</div>
+            </div>
+        </div>
+
+        <div class="feature">
+            <h3>代码示例</h3>
+            <div class="code-example">
+// 用户管理服务
+class UserService {
+  private users: any[] = [];
+
+  // 添加用户
+  addUser(user: any): boolean {
+    if (!user.name || !user.email) {
+      return false;
+    }
+
+    // 检查邮箱是否已存在
+    const existingUser = this.users.find(u => u.email === user.email);
+    if (existingUser) {
+      return false;
+    }
+
+    this.users.push(user);
+    return true;
+  }
+
+  // 获取用户
+  getUser(email: string): any {
+    return this.users.find(u => u.email === email);
+  }
+
+  // 删除用户
+  deleteUser(email: string): boolean {
+    const index = this.users.findIndex(u => u.email === email);
+    if (index === -1) {
+      return false;
+    }
+
+    this.users.splice(index, 1);
+    return true;
+  }
+}
+
+// 导出服务
+export default new UserService();
+            </div>
+        </div>
+
+        <div class="github-link">
+            <a href="https://github.com/Frog755/ai-code-review-system-demo" target="_blank">
+                查看GitHub项目
+            </a>
+        </div>
+    </div>
+</body>
+</html>

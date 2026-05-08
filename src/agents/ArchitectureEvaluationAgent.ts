@@ -20,7 +20,7 @@ export class ArchitectureEvaluationAgent {
   private generateSuggestions(
     architecture: any,
     patterns: DesignPattern[],
-    practices: any
+    practices: { violations: string[] }
   ): string[] {
     const suggestions: string[] = [];
 
