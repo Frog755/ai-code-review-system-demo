@@ -1,0 +1,32 @@
+{
+  "name": "ai-code-review-system",
+  "version": "1.0.0",
+  "description": "AI驱动的智能代码审查系统，基于多Agent协作和长链推理",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "jest",
+    "build": "tsc",
+    "lint": "eslint src/**/*.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "uuid": "^9.0.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "ai",
+    "code-review",
+    "multi-agent",
+    "long-chain-reasoning"
+  ],
+  "author": "AI Code Review System",
+  "license": "MIT"
+}
